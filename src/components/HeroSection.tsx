@@ -10,6 +10,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import heroImage from "@/assets/chef-hero-image.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -46,18 +47,24 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-white text-primary hover:bg-white/90 transition-smooth font-semibold text-lg px-8 shadow-glow"
+                asChild
               >
-                <ChefHat className="mr-2 h-5 w-5" />
-                Find Jobs
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/register">
+                  <ChefHat className="mr-2 h-5 w-5" />
+                  Find Jobs
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-primary transition-smooth font-semibold text-lg px-8"
+                asChild
               >
-                <Store className="mr-2 h-5 w-5" />
-                Post a Job
+                <Link to="/register">
+                  <Store className="mr-2 h-5 w-5" />
+                  Post a Job
+                </Link>
               </Button>
             </div>
 
