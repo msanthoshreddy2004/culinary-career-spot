@@ -9,6 +9,7 @@ import {
   Heart
 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface JobCardProps {
   title: string;
@@ -97,17 +98,23 @@ const JobCard = ({
 
       <div className="flex gap-3">
         <Button 
+          asChild
           className="flex-1 bg-gradient-hero hover:opacity-90 transition-smooth"
           size="sm"
         >
-          Apply Now
+          <Link to={`/apply/${title.toLowerCase().replace(/\s+/g, '-')}-${Math.random().toString(36).substr(2, 9)}`}>
+            Apply Now
+          </Link>
         </Button>
         <Button 
+          asChild
           variant="outline" 
           size="sm"
           className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
         >
-          View Details
+          <Link to={`/job/${title.toLowerCase().replace(/\s+/g, '-')}-${Math.random().toString(36).substr(2, 9)}`}>
+            View Details
+          </Link>
         </Button>
       </div>
     </div>
