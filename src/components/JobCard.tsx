@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface JobCardProps {
+  id?: string;
   title: string;
   company: string;
   location: string;
@@ -24,6 +25,7 @@ interface JobCardProps {
 }
 
 const JobCard = ({
+  id,
   title,
   company,
   location,
@@ -35,6 +37,9 @@ const JobCard = ({
   description
 }: JobCardProps) => {
   const [isSaved, setIsSaved] = useState(false);
+  
+  // Generate consistent ID if none provided
+  const jobId = id || title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
 
   return (
     <div className="job-card group">
@@ -102,7 +107,7 @@ const JobCard = ({
           className="flex-1 bg-gradient-hero hover:opacity-90 transition-smooth"
           size="sm"
         >
-          <Link to={`/apply/${title.toLowerCase().replace(/\s+/g, '-')}-${Math.random().toString(36).substr(2, 9)}`}>
+          <Link to={`/apply/${jobId}`}>
             Apply Now
           </Link>
         </Button>
@@ -112,7 +117,7 @@ const JobCard = ({
           size="sm"
           className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
         >
-          <Link to={`/job/${title.toLowerCase().replace(/\s+/g, '-')}-${Math.random().toString(36).substr(2, 9)}`}>
+          <Link to={`/job/${jobId}`}>
             View Details
           </Link>
         </Button>
