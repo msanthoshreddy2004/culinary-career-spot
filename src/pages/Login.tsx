@@ -18,14 +18,21 @@ const Login = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Frontend only - simulate successful login
+    
+    // Frontend only - simulate role-based login
+    const isOwner = formData.email.includes('owner') || formData.email.includes('pg');
+    
     toast({
       title: "Welcome back!",
       description: "You have been successfully logged in.",
     });
     
-    // Redirect to dashboard
-    navigate('/dashboard');
+    // Redirect based on user type
+    if (isOwner) {
+      navigate('/owner-dashboard');
+    } else {
+      navigate('/chef-dashboard');
+    }
   };
 
   return (
@@ -126,8 +133,8 @@ const Login = () => {
         {/* Demo Login */}
         <Card className="mt-4 border-secondary-rich/20 bg-secondary/20">
           <CardContent className="pt-6">
-            <p className="text-sm text-muted-foreground text-center">
-              <strong>Demo Accounts:</strong><br/>
+            <p className="text-center text-sm text-muted-foreground">
+              <strong>Demo Login:</strong><br/>
               Chef: chef@demo.com / password<br/>
               Owner: owner@demo.com / password
             </p>

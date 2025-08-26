@@ -9,7 +9,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ChefProfile from "./pages/ChefProfile";
 import OwnerProfile from "./pages/OwnerProfile";
-import Dashboard from "./pages/Dashboard";
+import ChefDashboard from "./pages/ChefDashboard";
+import OwnerDashboard from "./pages/OwnerDashboard";
 import JobDetails from "./pages/JobDetails";
 import JobApplication from "./pages/JobApplication";
 
@@ -25,7 +26,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chef-dashboard" element={<ChefDashboard />} />
+          <Route path="/owner-dashboard" element={<OwnerDashboard />} />
           <Route path="/chef-profile" element={<ChefProfile />} />
           <Route path="/owner-profile" element={<OwnerProfile />} />
           <Route path="/job/:id" element={<JobDetails />} />

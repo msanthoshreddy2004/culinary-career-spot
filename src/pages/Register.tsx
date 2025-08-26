@@ -4,10 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChefHat, Store, Eye, EyeOff, ArrowLeft, CheckCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ChefHat, Store, Eye, EyeOff, ArrowLeft, CheckCircle, Star, Users, Building2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [userType, setUserType] = useState<"chef" | "owner" | null>(null);
@@ -23,11 +26,26 @@ const Register = () => {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords don't match!");
+      toast({
+        title: "Error",
+        description: "Passwords don't match!",
+        variant: "destructive"
+      });
       return;
     }
-    // Frontend only - would integrate with auth service
-    console.log("Registration attempt:", { ...formData, userType });
+    
+    // Frontend only - simulate successful registration
+    toast({
+      title: "Welcome to ChefJobs!",
+      description: "Your account has been created successfully.",
+    });
+    
+    // Redirect based on user type
+    if (userType === "owner") {
+      navigate('/owner-dashboard');
+    } else {
+      navigate('/chef-dashboard');
+    }
   };
 
   return (
