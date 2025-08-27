@@ -13,6 +13,7 @@ import {
   Eye
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const OwnerDashboard = () => {
   const myJobs = [
@@ -50,6 +51,7 @@ const OwnerDashboard = () => {
             </Link>
             
             <div className="flex items-center space-x-4">
+              <ThemeToggle />
               <Button variant="ghost" size="sm">
                 <Bell className="h-4 w-4" />
               </Button>
@@ -85,9 +87,11 @@ const OwnerDashboard = () => {
               </Link>
             </Button>
             
-            <Button className="bg-gradient-hero hover:opacity-90">
-              <Plus className="h-4 w-4 mr-2" />
-              Post New Job
+            <Button className="bg-gradient-hero hover:opacity-90" asChild>
+              <Link to="/post-job">
+                <Plus className="h-4 w-4 mr-2" />
+                Post New Job
+              </Link>
             </Button>
           </div>
         </div>
@@ -187,9 +191,11 @@ const OwnerDashboard = () => {
                 </div>
                 
                 <div className="text-center mt-6">
-                  <Button className="bg-gradient-hero hover:opacity-90">
-                    <Plus className="h-4 w-4 mr-2" />
-                    Post New Job
+                  <Button className="bg-gradient-hero hover:opacity-90" asChild>
+                    <Link to="/post-job">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Post New Job
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
@@ -259,9 +265,11 @@ const OwnerDashboard = () => {
                 <CardTitle className="text-lg">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button variant="outline" className="w-full justify-start" size="sm">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Post New Job
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/post-job">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Post New Job
+                  </Link>
                 </Button>
                 <Button variant="outline" className="w-full justify-start" size="sm">
                   <Eye className="h-4 w-4 mr-2" />

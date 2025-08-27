@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import JobCard from "@/components/JobCard";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const ChefDashboard = () => {
   const recentJobs = [
@@ -50,6 +51,7 @@ const ChefDashboard = () => {
             </Link>
             
             <div className="flex items-center space-x-4">
+              <ThemeToggle />
               <Button variant="ghost" size="sm">
                 <Bell className="h-4 w-4" />
               </Button>
