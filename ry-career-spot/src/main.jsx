@@ -9,15 +9,28 @@ import Signup from './pages/auth/Signup.jsx'
 import Forgot from './pages/auth/Forgot.jsx'
 import ChefDashboard from './pages/chef/Dashboard.jsx'
 import OwnerDashboard from './pages/owner/Dashboard.jsx'
+import Jobs from './pages/Jobs.jsx'
+import Admin from './pages/Admin.jsx'
+import Profile from './pages/Profile.jsx'
+import Chat from './pages/Chat.jsx'
+import RootLayout from './layouts/RootLayout.jsx'
 
 const router = createBrowserRouter([
-  { path: '/', element: <Landing /> },
-  { path: '/login', element: <Login /> },
-  { path: '/signup', element: <Signup /> },
-  { path: '/forgot', element: <Forgot /> },
-  { path: '/chef', element: <ChefDashboard /> },
-  { path: '/owner', element: <OwnerDashboard /> },
-  { path: '/app', element: <App /> },
+  {
+    element: <RootLayout><div /></RootLayout>,
+    children: [],
+  },
+  { path: '/', element: <RootLayout><Landing /></RootLayout> },
+  { path: '/jobs', element: <RootLayout><Jobs /></RootLayout> },
+  { path: '/login', element: <RootLayout><Login /></RootLayout> },
+  { path: '/signup', element: <RootLayout><Signup /></RootLayout> },
+  { path: '/forgot', element: <RootLayout><Forgot /></RootLayout> },
+  { path: '/chef', element: <RootLayout><ChefDashboard /></RootLayout> },
+  { path: '/owner', element: <RootLayout><OwnerDashboard /></RootLayout> },
+  { path: '/admin', element: <RootLayout><Admin /></RootLayout> },
+  { path: '/profile', element: <RootLayout><Profile /></RootLayout> },
+  { path: '/chat', element: <RootLayout><Chat /></RootLayout> },
+  { path: '/app', element: <RootLayout><App /></RootLayout> },
 ])
 
 createRoot(document.getElementById('root')).render(
